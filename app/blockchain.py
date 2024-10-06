@@ -1,11 +1,10 @@
 import hashlib
 import json
 from time import time
-from uuid import uuid4
-from flask import Flask, jsonify, request
 
 
 class Blockchain:
+    # initializes the blockchain with an empty chain and a list of current transactions. It also creates the genesis block.
     def __init__(self) -> None:
         self.chain = []
         self.current_transaction = []
@@ -14,9 +13,7 @@ class Blockchain:
         self.new_block(previous_hash="1", proof=100)
 
     def new_block(self, proof, previous_hash=None):
-
         # create a new Block in the Blockchain
-
         block = {
             "index": len(self.chain) + 1,
             "timestamp": time(),
