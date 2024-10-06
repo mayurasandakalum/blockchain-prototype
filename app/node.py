@@ -12,12 +12,10 @@ node_identifier = str(uuid4()).replace("-", "")
 # initiate the blockchain
 blockchain = Blockchain()
 
+
 # API endpoints
-
-
 @app.route("/mine", methods=["GET"])
 def mine():
-    print("Midne")
     # run the Proof of Work algorithm to get the next proof
     last_block = blockchain.last_block
     last_proof = last_block["proof"]
