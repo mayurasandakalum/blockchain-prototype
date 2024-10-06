@@ -1,2 +1,2 @@
-from blockchain import Blockchain
-from node import app
+from .blockchain import Blockchain
+from .node import app

@@ -25,7 +25,7 @@ class Blockchain:
         # reset the current list of transactions
         self.current_transaction = []
 
-        self.chain_append(block)
+        self.chain.append(block)
         return block
 
     def new_transaction(self, sender, recipient, amount):

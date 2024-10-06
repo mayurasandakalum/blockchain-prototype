@@ -1,7 +1,7 @@
 from uuid import uuid4
 from flask import Flask, jsonify, request
 
-from blockchain import Blockchain
+from .blockchain import Blockchain
 
 # initiate our node
 app = Flask(__name__)
@@ -17,6 +17,7 @@ blockchain = Blockchain()
 
 @app.route("/mine", methods=["GET"])
 def mine():
+    print("Midne")
     # run the Proof of Work algorithm to get the next proof
     last_block = blockchain.last_block
     last_proof = last_block["proof"]
