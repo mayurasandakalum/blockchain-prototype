@@ -47,4 +47,19 @@ def new_transaction():
     # chech that the required fields are in the POSTed data
     required = ["sender", "recipient", "amount"]
     if not all(k in values for k in required):
-        pass
+        return "Missing values", 400
+
+    # create a new transaction
+    index = blockchain.new_transaction(
+        values["sender"], values["recipient"], values["amount"]
+    )
+
+    response = {"message": f"Transaction will be added to Block {index}"}
+    return jsonify(response), 201
+
+
+@app.route("/chain", methods=["GET"])
+def full_chain():
+    response = {"chain": blockchain.chain, "length": len(blockchain.chain)}
+
+    return jsonify(response), 200
