@@ -1,5 +1,4 @@
-import hashlib
-import json
-from time import time
-from flask import Flask, jsonify, request
+from app.node import app
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
