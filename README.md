@@ -1,5 +1,7 @@
 # Simple Blockchain Implementation
 
+![Blockchain Image](/assets/3d-rendering-blockchain-technology.jpg)
+
 This project is a basic implementation of a blockchain using Python and Flask. It includes functionalities such as creating blocks, adding transactions, mining new blocks, and maintaining consensus across multiple nodes.
 
 ## Features
