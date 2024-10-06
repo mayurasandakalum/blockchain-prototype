@@ -38,3 +38,33 @@ class Blockchain:
         )
 
         return self.last_block["index"] + 1
+
+    @staticmethod
+    def hash(block):
+        # creates a SHA-256 hash of a Block
+        block_string = json.dumps(block, sort_keys=True).encode()
+
+        return hashlib.sha256(block_string).hexdigest()
+
+    @property
+    def last_block(self):
+        return self.chain[-1]
+
+    def proof_of_work(self, last_proof):
+        # Simple Proof of Work Algorithm:
+        #     - Find a number p' such that hash(pp') contains leading 4 zeros
+        #     - p is the previous proof, and p' is the new proof
+
+        proof = 0
+        while self.valid_proof(last_proof, proof) is False:
+            proof += 1
+
+        return proof
+
+    @staticmethod
+    def valid_proof(last_proof, proof):
+        # validates the proof: does hash(last_proof, proof) contains 4 leading zeros?
+        guess = f"{last_proof}{proof}".encode()
+        guess_hash = hashlib.sha256(guess).hexdigest()
+
+        return guess_hash[:4] == "000"
