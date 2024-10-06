@@ -22,8 +22,8 @@ This project is a basic implementation of a blockchain using Python and Flask. I
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/Blockchain.git
-    cd Blockchain
+    git clone https://github.com/mayurasandakalum/blockchain-prototype.git
+    cd blockchain-prototype
     ```
 
 2. **Create a Virtual Environment (Optional but Recommended)**
